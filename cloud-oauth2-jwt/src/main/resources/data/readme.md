@@ -51,7 +51,7 @@
 
 # 7. cara mendapatkan token
 
-`curl -X POST -vu USER_CLIENT_APP:password 'http://localhost:9001/oauth/tken?username=admin&password=password&grant_type=password'`
+`curl -X POST -vu USER_CLIENT_APP:password 'http://localhost:9001/oauth/token?username=admin&password=password&grant_type=password'`
 
 # 8. build spring boot docker images
 

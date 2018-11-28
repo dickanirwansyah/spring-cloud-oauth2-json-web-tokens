@@ -1,0 +1,20 @@
+#konfigurasi cloud oauth2 resources
+spring:
+  application:
+    name: cloud-oauth2-resource
+---
+server:
+  port: 8888
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: -----BEGIN PUBLIC KEY-----
+                    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApMrooeb2QGEjSsSfblti
+                    Pr7/38PXpOfRZVGTaJAKiG0MjDCMKrN6s5icLShtE9XV5JUY1Begoxc9fr6nrrRc
+                    afGFb+6Br79K6Zdu6RXFGHA3FeT7obMCnToFrCtMYzoKPlGMZh9rMbNJUZ0ab3u+
+                    rDoQNO8GZA05U5ek5xLvCoFkNs18SKmbDU88sdlKyzZy11v/K2nyLU7CRCuWdWgk
+                    P97ptFb7gk77sKoW0bNHxaFuZ2flSuIahyWW/F+gAzzIqtVdAf4nfvLLIUbNHVyZ
+                    QOI/Lnio+lDmYWkKJGomIyKUn49W4cmxgudRWNWB5hOoTsr90MeesMPtJPagWsy/
+                    bQIDAQAB
+                    -----END PUBLIC KEY-----

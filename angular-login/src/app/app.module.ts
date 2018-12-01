@@ -13,12 +13,16 @@ import { AppRoutingModule } from './app.routing.module';
 /** auth service */
 import { AuthService } from './service/auth.service';
 import { from } from 'rxjs';
+import { AdminComponent } from './admin/admin.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AdminComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

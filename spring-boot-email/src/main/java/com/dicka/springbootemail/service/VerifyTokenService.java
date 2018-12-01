@@ -53,7 +53,7 @@ public class VerifyTokenService {
 
     public ResponseEntity<String> verifyEmail(String token){
 
-        /** check token **/
+        /** check token null **/
         List<VerifyToken> verifyTokens = verifyTokenRepository.findByToken(token);
         if (verifyTokens.isEmpty()){
             return ResponseEntity.badRequest()

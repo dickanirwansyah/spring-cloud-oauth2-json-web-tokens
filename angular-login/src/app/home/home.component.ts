@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.authservice.checkTokenInCookies();
-    this.authservice.decodeJwtToken();
+    //this.authservice.decodeJwtToken();
+    this.authservice.decodeJwtTokenUsingHelper();
   }
 
 }

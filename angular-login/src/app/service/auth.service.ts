@@ -3,11 +3,29 @@ import { Router, RouterModule } from '@angular/router';
 import { Cookie } from 'ng2-cookies';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { JwtHelper } from 'angular2-jwt';
+ 
+
 
 @Injectable()
 export class AuthService{
 
     AUTH_TOKEN_URI = '/oauth/token';
+    /** example jwt helper decode */
+
+    /**coba */
+    jwtHelper: JwtHelper = new JwtHelper();
+    isAdmins: boolean;
+    accessToken: string;
+
+    isAdminScopes():boolean {
+        return this.isAdmins;
+    }
+
+    isUserScopes():boolean {
+        return this.accessToken && !this.isAdmins
+    }
 
     constructor(
         public router: Router,
@@ -35,7 +53,19 @@ export class AuthService{
                 )
     }
 
+    /** decode using jwt helper */
+    decodeJwtTokenUsingHelper(){
+       const data = localStorage.getItem('access_token');
+       const decodeToken = this.jwtHelper.decodeToken(data);
+       console.log("data : "+ data);
+       console.log(decodeToken);
+       this.isAdmins = decodeToken.scope.some(el => el === 'role_admin');
+       console.log("admin : "+this.isAdmins)
+    }
+
+    /** decode jwt no jwt helper */
     decodeJwtToken(){
+       
        //var base64Url = token.split('.')[1];
         //var base64 = base64Url.replace('-', '+').replace('_', '/')
         //return JSON.parse(window.atob(base64));
@@ -45,12 +75,20 @@ export class AuthService{
         let decodedJwtJsonData = window.atob(jwtData)
         let decodedJwtData = JSON.parse(decodedJwtJsonData)
 
-        let isAdmin = decodedJwtData.authorities.role_admin
+        let isAdmin = decodedJwtData.scopes
+        let username = decodedJwtData.user_name
+
+        if(isAdmin){
+            console.log('INI ADALAH ADMIN');
+        }else{
+            console.log('INI BUKAN ADMIN');
+        }
 
         console.log('jwtData = '+jwtData)
         console.log('decodedJwtJsonData = '+decodedJwtJsonData)
         console.log('decodedJwtData = '+decodedJwtData)
         console.log('Is admin : ' + isAdmin);
+        console.log('username : ' + username);
     }
 
     /**isAuthenticated 

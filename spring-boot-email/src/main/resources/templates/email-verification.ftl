@@ -1,7 +1,7 @@
-Hi Dicka,<br/>
+pesan ini dari core banking mandiri ,<br/>
 
 ${VERIFICATION_URL}
 <br/>
 
-brengsek<br/>
+mandiri verifikasi token<br/>
 

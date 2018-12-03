@@ -51,6 +51,13 @@
 		</dependency>
 		<!--mysql-->
 
+		<!--spring boot email-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		<!--spring boot email-->
+
 		<!--postgresql
 		<dependency>
 			<groupId>org.postgresql</groupId>

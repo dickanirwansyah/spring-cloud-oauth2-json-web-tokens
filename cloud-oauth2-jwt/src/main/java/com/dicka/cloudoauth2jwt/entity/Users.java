@@ -36,6 +36,7 @@ public class Users extends BaseIdEntity implements UserDetails{
     })
     private List<Role> roles;
 
+    /** authorities by permission **/
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
@@ -79,8 +80,7 @@ public class Users extends BaseIdEntity implements UserDetails{
     public void setUsername(String username){
         this.username = username;
     }
-
-
+    
     public String getPassword(){
         return password;
     }
